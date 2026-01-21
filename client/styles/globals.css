@@ -1,0 +1,198 @@
+@import 'tailwindcss';
+@import 'tw-animate-css';
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  /* Font families - System stack with Geist for raw feel */
+  --font-sans: 'Geist', system-ui, -apple-system, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, monospace;
+  
+  /* New palette: Warm slate, terracotta, cream - industrial automotive */
+  --color-background: #1a1917;
+  --color-foreground: #e8e4df;
+  --color-card: #242220;
+  --color-card-foreground: #e8e4df;
+  --color-popover: #242220;
+  --color-popover-foreground: #e8e4df;
+  
+  /* Primary - Burnt orange/terracotta for action */
+  --color-primary: #c45d35;
+  --color-primary-foreground: #faf8f5;
+  
+  /* Secondary - Warm stone */
+  --color-secondary: #78716c;
+  --color-secondary-foreground: #faf8f5;
+  
+  /* Muted - Deep warm gray */
+  --color-muted: #2d2a27;
+  --color-muted-foreground: #a8a29e;
+  
+  /* Accent - Rust copper */
+  --color-accent: #b45932;
+  --color-accent-foreground: #faf8f5;
+  
+  /* Destructive - Muted red */
+  --color-destructive: #b34040;
+  --color-destructive-foreground: #faf8f5;
+  
+  /* Success - Olive sage */
+  --color-success: #5c7c5c;
+  --color-success-foreground: #faf8f5;
+  
+  /* Info - Steel */
+  --color-info: #5c7c8c;
+  --color-info-foreground: #faf8f5;
+  
+  /* Borders - warmer undertone */
+  --color-border: #3d3835;
+  --color-input: #1a1917;
+  --color-ring: #c45d35;
+  
+  /* Surface */
+  --color-surface: #242220;
+  --color-surface-foreground: #e8e4df;
+  
+  /* Header */
+  --color-header: #141312;
+  --color-header-foreground: #faf8f5;
+  
+  /* Radius - Sharp and varied */
+  --radius-sm: 2px;
+  --radius-md: 3px;
+  --radius-lg: 4px;
+  --radius-xl: 6px;
+  --radius-full: 9999px;
+}
+
+* {
+  border-color: var(--color-border);
+}
+
+body {
+  background-color: #1a1917;
+  color: var(--color-foreground);
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  letter-spacing: -0.01em;
+}
+
+/* Minimal scrollbar */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3d3835;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4d4845;
+}
+
+@layer utilities {
+  /* Flat utilities - no gradients */
+  .gradient-primary {
+    background-color: #c45d35;
+  }
+  
+  .gradient-hero {
+    background-color: #1a1917;
+  }
+  
+  .gradient-header {
+    background-color: #141312;
+  }
+  
+  .gradient-surface {
+    background-color: #1a1917;
+  }
+  
+  .bg-surface {
+    background-color: #242220;
+  }
+  
+  .bg-header {
+    background-color: #141312;
+    color: #faf8f5;
+  }
+  
+  .bg-success {
+    background-color: #5c7c5c;
+    color: #faf8f5;
+  }
+  
+  .text-success {
+    color: #5c7c5c;
+  }
+  
+  .border-success {
+    border-color: #5c7c5c;
+  }
+  
+  /* Minimal shadows */
+  .card-shadow {
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.12);
+  }
+  
+  .card-shadow-lg {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.16);
+  }
+  
+  .card-shadow-hover {
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  /* Snappier animations */
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fade-in-down {
+    from {
+      opacity: 0;
+      transform: translateY(-6px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  @keyframes fade-in {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  
+  .animate-fade-in {
+    animation: fade-in 100ms cubic-bezier(0.25, 0.1, 0.25, 1);
+  }
+  
+  .animate-fade-in-up {
+    animation: fade-in-up 140ms cubic-bezier(0.33, 0, 0.2, 1);
+  }
+  
+  .animate-fade-in-down {
+    animation: fade-in-down 120ms cubic-bezier(0.33, 0, 0.2, 1);
+  }
+  
+  .animation-delay-200 {
+    animation-delay: 60ms;
+  }
+  
+  .animation-delay-400 {
+    animation-delay: 100ms;
+  }
+}
